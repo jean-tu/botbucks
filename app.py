@@ -1,4 +1,5 @@
-from flask import Flask, render_template 
+from flask import Flask, render_template
+from scripts.cinterest import compute_comp_int
 
 app = Flask(__name__)
 
