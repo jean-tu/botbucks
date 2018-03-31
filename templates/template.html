@@ -4,9 +4,19 @@
   <head>
     <meta charset="UTF-8">
     <title>LAHACKS 2018</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/mainbody.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/mainbody.css') }}">
+
   </head>
   <body>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  {% include 'includes/_navbar.html' %}
   {% block body %}{% endblock %}
+
+
+  <iframe width="350" height="430" src="https://console.dialogflow.com/api-client/demo/embedded/0bb97539-9eec-4281-be0a-a2172c60620d"></iframe>
+  <hr>
+  <center><p>A project by Andrew, Scott, Jean, and Eduardo.</p></center>
+  <center><p>LA Hacks 2018</p></center>
   </body>
 </html>
