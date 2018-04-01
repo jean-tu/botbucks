@@ -33,7 +33,7 @@ def compute():
 	}
 	res = json.dump(my_response)
 	r = make_response(res) 
-	r.headers=['Content-Type'] = 'application/json'
+	r.headers['Content-Type'] = 'application/json'
 	return r 
 
 
