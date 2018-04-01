@@ -1,6 +1,10 @@
-runtime: python27
+runtime: python
 api_version: 1
 threadsafe: false 
+
+
+runtime_config: 
+  python_version: 3
 
 handlers:
 - url: .*
@@ -11,6 +15,3 @@ libraries:
   version: "2.6"
 - name: markupsafe
   version: "0.15"
-
-runtime_config: 
-  python_version: 3
