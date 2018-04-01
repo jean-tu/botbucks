@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask import request, make_response # in order to be able to use the webhook
 from scripts.cinterest import compute_comp_int
 from google.cloud import bigquery 
 import json
@@ -20,9 +21,18 @@ def lesson1():
 
 
 #Provie the user information on the stock that they are requesting information on 
-@app.route('/stockUpdate',  methods=['POST']) 
-def stockUpdate(): 
-	return "you've reached stockUpdate"
+@app.route('/compute', methods=['POST'])
+def apiai_repsonse(): 
+	coffee-price = "This is a response from GAE !!!" 
+	my_response = {
+		"coffee-price" : coffee-price, 
+		"size": "large", 
+		"drink": "latte",
+	}
+	res = json.dump(my_response)
+	r = make_response(res) 
+	r.headers=['Content-Type'] = 'application/json'
+	return r 
 
 
 @app.route('/shutdown', methods=['POST'])
