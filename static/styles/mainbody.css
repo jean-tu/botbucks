@@ -1,11 +1,12 @@
 h1, h2, h3, p {
     font-family: "Lato", "Book Antiqua", Palatino, serif;
+    font-color: #00394d;
     /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 
 body {
-  background-color:#6DE6FF;
-  padding: 25px 50px 75px 100px;
+  background-color:#66d9ff;
+  /*padding: 25px 25px 25px 25px;*/
 }
 
