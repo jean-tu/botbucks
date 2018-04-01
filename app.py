@@ -23,6 +23,7 @@ def lesson1():
 #Provie the user information on the stock that they are requesting information on 
 @app.route('/compute', methods=['POST'])
 def compute():
+	print("HELLO INSIDE COMPUTE") #debug
 	coffee-price = "This is a response from GAE !!!"
 	my_response = {
 		"coffee-price" : coffee-price, 
