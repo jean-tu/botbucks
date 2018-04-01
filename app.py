@@ -26,21 +26,21 @@ def lesson1():
 #Provie the user information on the stock that they are requesting information on
 @app.route('/compute', methods=['POST'])
 def compute():
-    # req = request.get_json(silent=True, force=True)
-    # stock = req['result']['parameters'].get('stockName')
-    # # createPortfolio(1000, [stock])#calls on the function from porfoliomaker
+    req = request.get_json(silent=True, force=True)
+    stock = req['result']['parameters'].get('stockName')
+    # createPortfolio(1000, [stock])#calls on the function from porfoliomaker
     # print(stock) #debug
-    # my_response = {
-       # "speech": "hello",
-    #    "diaplayText": "hello",
-    # }
-    # res = json.dump(my_response)
-    # r = make_response(res)
+    my_response = {
+       "speech": "hello",
+       "diaplayText": "hello",
+    }
+    res = json.dump(my_response)
+    r = make_response(res)
     # r.headers['Content-Type'] = 'application/json'
     # print(r)
-    # return r
-    r = make_response()
     return r
+    # r = make_response()
+    # return r
 
 
 
