@@ -5,6 +5,7 @@ from flask import request, make_response # in order to be able to use the webhoo
 #from google.cloud import bigquery
 import json
 import sys
+from portfoliomaker import createPortfolio
 
 app = Flask(__name__)
 
@@ -27,7 +28,8 @@ def lesson1():
 def compute():
     req = request.get_json(silent=True, force=True)
     stock = req['result']['parameters'].get('stockName')
-    print("HELLO INSIDE COMPUTER ", stock, file=sys.stdout) #debug
+    createPortfolio(1000, [stock])#calls on the function from porfoliomaker
+    # print("HELLO INSIDE COMPUTER ", stock, file=sys.stdout) #debug
     my_response = {
 	   "speech": "hello",
        "diaplayText": "hello",
