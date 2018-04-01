@@ -1,8 +1,8 @@
 from flask import Flask
 from flask import render_template
 from flask import request, make_response # in order to be able to use the webhook
-from scripts.cinterest import compute_comp_int
-from google.cloud import bigquery 
+#from scripts.cinterest import compute_comp_int
+#from google.cloud import bigquery 
 import json
 
 app = Flask(__name__)
@@ -44,5 +44,5 @@ def shutdown():
 
 
 
-if __name__ == '__main__': 
-	app.run(debug = True)
+#if __name__ == '__main__': 
+	#app.run()
