@@ -27,7 +27,7 @@ def lesson1():
 def compute():
     req = request.get_json(silent=True, force=True)
     stock = req['result']['parameters'].get('stockName')
-    print("HELLO INSIDE COMPUTE "+ stock, file=sys.stderr) #debug
+    print("HELLO INSIDE COMPUTER ", stock, file=sys.stdout) #debug
     my_response = {
 	   "speech": "hello",
        "diaplayText": "hello",
