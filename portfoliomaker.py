@@ -31,31 +31,30 @@ def _date(dateString):
     return datetime.date(y,m,d)
 
 
-def plotGrowth(X, Y, identifiers, startDate, endDate, ax=None):
+def plotGrowth(X, Y, xlabels, identifiers, startDate, endDate, ax=None):
     if ax == None:
         fig, ax = plt.subplots(figsize=(30,15))
-    title = "{} performance from {} to {}".format("/".join(identifiers), _date(startDate), _date(endDate))
+    title = "{} performance from {} to {}".format("/".join(identifiers),_date(startDate),_date(endDate))
     plt.xlim(0,len(X))
-    plt.ylabel('Investment Value', fontsize=28)
+    plt.ylabel('Return on Investment', fontsize=26)
     plt.yticks(size=26)
-    plt.xticks(size=26, rotation=45) #np.arange(len(X)), month_name[1:13],
-    # ax.xaxis.set_major_locator(months)
-    # for index, label in enumerate(ax.xaxis.get_ticklabels()):
-    #     if index % n != 0:
-    #         label.set_visible(False)
+    plt.xticks(np.arange(len(X)), xlabels, size=26, rotation=45) #np.arange(len(X)), month_name[1:13],
+    for index, label in enumerate(ax.xaxis.get_ticklabels()):
+        if index % 30 != 0:
+            label.set_visible(False)
     ax.plot(X, Y, c='red', label='Performance', linewidth=4)
     plt.suptitle(title,fontsize=40)
     ax.axhline(Y[-1], label='Investment value= ${:.2f}'.format(Y[-1]), linewidth=4, c='green')
-    ax.legend(prop={'size': 28})
+    ax.legend(prop={'size': 26}, loc=4)
     plt.tight_layout()
-    # plt.show()
     plt.savefig('figure.png')
 
 
-def createPortfolio(investment=1000, identifiers=['GOOG'], startDate='20170101', endDate='20171231'):
+def createPortfolio(investment=1000, identifiers=['GOOG','BLK','AMZN'], startDate='20170101', endDate='20171231'):
     portfolioAnalysisRequest = apiRequest(identifiers, startDate, endDate)
     X,Y = calculateGrowth(investment, portfolioAnalysisRequest)
-    plotGrowth(X,Y,identifiers, startDate, endDate)
+    xlabels = [str(i[0:4])+"-"+str(i[4:6]) for i in portfolioAnalysisRequest['resultMap']['RETURNS'][0]['returnsMap']]
+    plotGrowth(X,Y, xlabels, identifiers, startDate, endDate)
 
 
 if __name__ == '__main__':
