@@ -4,6 +4,7 @@ from flask import request, make_response # in order to be able to use the webhoo
 #from scripts.cinterest import compute_comp_int
 #from google.cloud import bigquery
 import json
+import sys
 
 app = Flask(__name__)
 
@@ -24,15 +25,16 @@ def lesson1():
 #Provie the user information on the stock that they are requesting information on
 @app.route('/compute', methods=['POST'])
 def compute():
-    print("HELLO INSIDE COMPUTE") #debug
-    coffeeprice = "This is a response from GAE !!!"
+    request = request.get('stockName')
+    print("HELLO INSIDE COMPUTE "+ request, file=sys.stderr) #debug
     my_response = {
 	   "speech": "hello",
-       "diaplayText": "hello", 
+       "diaplayText": "hello",
     }
     res = json.dump(my_response)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
+    print(r)
     return r
 
 
