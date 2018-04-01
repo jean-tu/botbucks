@@ -24,9 +24,9 @@ def lesson1():
 @app.route('/compute', methods=['POST'])
 def compute():
 	print("HELLO INSIDE COMPUTE") #debug
-	coffee-price = "This is a response from GAE !!!"
+	coffeeprice = "This is a response from GAE !!!"
 	my_response = {
-		"coffee-price" : coffee-price, 
+		"coffee-price" : coffeeprice, 
 		"size": "large", 
 		"drink": "latte",
 	}
