@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 from flask import render_template
 from flask import request, make_response # in order to be able to use the webhook
 #from scripts.cinterest import compute_comp_int
@@ -22,8 +22,24 @@ def about():
 def lesson1():
     return render_template('lesson1.html')
 
+@app.route('/stockticker', methods=['POST'])
+def receiveStockTicker():
+    stock_ticker = {'stock' : request.json["outputContexts"]}
+    print(stock_ticker)
 
-#Provie the user information on the stock that they are requesting information on
+@app.route('/disgraph')
+def dis_graph():
+    return render_template('disgraph.html')
+
+@app.route('/twxgraph')
+def twx_graph():
+    return render_template('twxgraph.html')
+
+@app.route('/viacomgraph')
+def viacom_graph():
+    return render_template('viacomgraph.html')
+
+#Provide the user information on the stock that they are requesting information on
 @app.route('/compute', methods=['POST'])
 def compute():
     req = request.get_json(silent=True, force=True)
@@ -51,5 +67,5 @@ def shutdown():
 
 
 
-#if __name__ == '__main__':
-#	app.run(debug = True)
+if __name__ == '__main__':
+	app.run(debug = True)
