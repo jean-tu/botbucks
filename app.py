@@ -25,8 +25,9 @@ def lesson1():
 #Provie the user information on the stock that they are requesting information on
 @app.route('/compute', methods=['POST'])
 def compute():
-    request = request.get('stockName')
-    print("HELLO INSIDE COMPUTE "+ request, file=sys.stderr) #debug
+    req = request.get_json(silent=True, force=True)
+    stock = req['result']['parameters'].get('stockName')
+    print("HELLO INSIDE COMPUTE "+ stock, file=sys.stderr) #debug
     my_response = {
 	   "speech": "hello",
        "diaplayText": "hello",
