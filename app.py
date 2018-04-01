@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask
+from flask import render_template
 from flask import request, make_response # in order to be able to use the webhook
 from scripts.cinterest import compute_comp_int
 from google.cloud import bigquery 
