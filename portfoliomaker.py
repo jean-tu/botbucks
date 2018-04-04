@@ -31,7 +31,7 @@ def _date(dateString):
 
 def plotGrowth(X, Y, xlabels, identifiers, startDate, endDate, save=False):
     fig, ax = plt.subplots(figsize=(30,15))
-    title = "{} performance from {} to {}".format("/".join(identifiers),_date(startDate),_date(endDate))
+    title = "{} performance from {} to {}".format("-".join(identifiers),_date(startDate),_date(endDate))
     plt.suptitle(title,fontsize=40)
     plt.xlim(0,len(X))
     plt.ylabel('Return on Investment', fontsize=26)
@@ -45,7 +45,7 @@ def plotGrowth(X, Y, xlabels, identifiers, startDate, endDate, save=False):
     ax.legend(prop={'size': 30}, loc=4)
     plt.tight_layout()
     if save == True:
-        plt.savefig('figure.png')
+        plt.savefig("-".join(identifiers)+".png")
         print '* Save succesful *'
 
 
